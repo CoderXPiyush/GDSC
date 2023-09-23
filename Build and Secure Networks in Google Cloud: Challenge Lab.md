@@ -1,9 +1,16 @@
+<h4>Build and Secure Networks in Google Cloud: Challenge Lab</h4>
+# Use The Vars Provided In Ur Lab
+
+Step 1:
+```
 export IAP_NETWORK_TAG=
 export INTERNAL_NETWORK_TAG=
 export HTTP_NETWORK_TAG=
 export ZONE=
+```
+Step 2:
 
-
+```
 gcloud compute firewall-rules delete open-access
 gcloud compute firewall-rules create ssh-ingress --allow=tcp:22 --source-ranges 35.235.240.0/20 --target-tags $IAP_NETWORK_TAG --network acme-vpc
 gcloud compute instances add-tags bastion --tags=$IAP_NETWORK_TAG --zone=$ZONE
@@ -11,15 +18,17 @@ gcloud compute firewall-rules create http-ingress --allow=tcp:80 --source-ranges
 gcloud compute instances add-tags juice-shop --tags=$HTTP_NETWORK_TAG --zone=$ZONE
 gcloud compute firewall-rules create internal-ssh-ingress --allow=tcp:22 --source-ranges 192.168.10.0/24 --target-tags $INTERNAL_NETWORK_TAG --network acme-vpc
 gcloud compute instances add-tags juice-shop --tags=$INTERNAL_NETWORK_TAG --zone=$ZONE
- 
+```
 
 
 
 
 
-Second Ssh:
- 
+To Be Used In Second SSH Tab :
+
+```
 gcloud compute ssh juice-shop --internal-ip
+```
 
 
 
