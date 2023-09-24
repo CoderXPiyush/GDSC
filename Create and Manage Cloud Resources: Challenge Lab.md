@@ -1,3 +1,4 @@
+```
 export INSTANCE_NAME=
 export ZONE=
 export REGION=
@@ -100,4 +101,4 @@ gcloud compute forwarding-rules create $FIREWALL_NAME \
 --target-http-proxy http-lb-proxy \
 --ports 80
 gcloud compute forwarding-rules list
- 
+```
